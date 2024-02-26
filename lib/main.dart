@@ -15,6 +15,9 @@ class MainApp extends StatelessWidget {
       routeInformationProvider: router.routeInformationProvider,
       routerDelegate: router.routerDelegate,
       debugShowCheckedModeBanner: false,
+      theme: ThemeData.light(useMaterial3: true),
+      darkTheme: ThemeData.dark(useMaterial3: true),
+      themeMode: ThemeMode.system,
     );
   }
 }
