@@ -23,7 +23,7 @@ class TodayScreen extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(
-              height: 60,
+              height: 40,
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -250,7 +250,7 @@ Widget Spits() {
         ),
       ),
       const SizedBox(
-        height: 20,
+        height: 100,
       ),
     ],
   );

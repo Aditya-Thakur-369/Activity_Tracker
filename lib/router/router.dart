@@ -9,8 +9,8 @@ class AppRouter {
 }
 
 class Routes {
-  static AppRouter navigation = AppRouter(name: "/Navigation", path: "/nav");
-  static AppRouter homescreen = AppRouter(name: "/homescreen", path: "/");
+  static AppRouter navigation = AppRouter(name: "/Navigation", path: "/");
+  static AppRouter homescreen = AppRouter(name: "/homescreen", path: "/homescreen");
   static AppRouter todayscreen =
       AppRouter(name: "/todayscreen", path: "/todayscreen");
   static AppRouter healthscreen =
