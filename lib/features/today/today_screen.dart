@@ -5,11 +5,14 @@ import 'package:activity_tracker/features/home/widgets/leftbounce_animation.dart
 import 'package:activity_tracker/features/home/widgets/rightbounce_animation.dart';
 import 'package:activity_tracker/features/home/widgets/scalefade_animation.dart';
 import 'package:activity_tracker/features/today/widgets/Custom_card.dart';
+import 'package:activity_tracker/features/today/widgets/custom_linearprogess.dart';
 import 'package:activity_tracker/router/router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:lottie/lottie.dart';
 
 class TodayScreen extends StatelessWidget {
   const TodayScreen({super.key});
@@ -54,10 +57,41 @@ class TodayScreen extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 400,
+              height: 430,
               width: 400,
-              child: ScaleFadeAnimation(
-                  delay: 2, child: Image.asset("assets/icons/vector_line.png")),
+              child: Stack(
+                children: [
+                  Positioned(
+                      right: -40,
+                      top: 170,
+                      child: LottieBuilder.asset(
+                        "assets/icons/marker.json",
+                        height: 120,
+                        width: 120,
+                      )),
+                  Positioned(
+                      right: 135,
+                      top: -30,
+                      child: LottieBuilder.asset(
+                        "assets/icons/marker2.json",
+                        height: 120,
+                        width: 120,
+                      )),
+                  Positioned(
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: SizedBox(
+                      height: 380,
+                      width: 380,
+                      child: ScaleFadeAnimation(
+                          delay: 2,
+                          child: Image.asset("assets/icons/vector_line.png")),
+                    ),
+                  ),
+                ],
+              ),
             ),
             BounceFromLeftAnimation(
               delay: 0.5,
@@ -163,12 +197,9 @@ Widget Spits() {
       ),
       BounceFromBottomAnimation(
         delay: 0.4,
-        child: LinearProgressIndicator(
+        child: AnimatedLinearProgressIndicator(
+          delay: 2,
           value: 0.3,
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
-          minHeight: 4,
-          valueColor: const AlwaysStoppedAnimation<Color>(Colors.black),
-          backgroundColor: Colors.transparent.withOpacity(0.1),
         ),
       ),
       const SizedBox(
@@ -189,12 +220,9 @@ Widget Spits() {
       ),
       BounceFromBottomAnimation(
         delay: 0.8,
-        child: LinearProgressIndicator(
+        child: AnimatedLinearProgressIndicator(
+          delay: 2,
           value: 0.6,
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
-          minHeight: 4,
-          valueColor: const AlwaysStoppedAnimation<Color>(Colors.black),
-          backgroundColor: Colors.transparent.withOpacity(0.1),
         ),
       ),
       const SizedBox(
@@ -215,12 +243,9 @@ Widget Spits() {
       ),
       BounceFromBottomAnimation(
         delay: 1.2,
-        child: LinearProgressIndicator(
+        child: AnimatedLinearProgressIndicator(
+          delay: 2,
           value: 0.4,
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
-          minHeight: 4,
-          valueColor: const AlwaysStoppedAnimation<Color>(Colors.black),
-          backgroundColor: Colors.transparent.withOpacity(0.1),
         ),
       ),
       const SizedBox(
@@ -241,12 +266,9 @@ Widget Spits() {
       ),
       BounceFromBottomAnimation(
         delay: 1.6,
-        child: LinearProgressIndicator(
+        child: AnimatedLinearProgressIndicator(
+          delay: 2,
           value: 0.8,
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
-          minHeight: 4,
-          valueColor: const AlwaysStoppedAnimation<Color>(Colors.black),
-          backgroundColor: Colors.transparent.withOpacity(0.1),
         ),
       ),
       const SizedBox(

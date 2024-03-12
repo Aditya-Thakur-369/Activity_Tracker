@@ -4,6 +4,7 @@ import 'package:activity_tracker/features/health/widgets/custom_card.dart';
 import 'package:activity_tracker/features/home/widgets/bottomfade_animation.dart';
 import 'package:activity_tracker/features/home/widgets/leftbounce_animation.dart';
 import 'package:activity_tracker/features/home/widgets/scalefade_animation.dart';
+import 'package:activity_tracker/features/today/widgets/custom_linearprogess.dart';
 import 'package:activity_tracker/router/router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +77,7 @@ class HealthScreen extends StatelessWidget {
                     icon: Iconsax.weight,
                     iconname: "Today",
                     value: "+ 4.25 kg",
-                    percentage: "51.50 kg",
+                    percentage: 51.50,
                     percentIndigator: 0.2,
                     color: thirdcard,
                     downarrow: true,
@@ -88,7 +89,7 @@ class HealthScreen extends StatelessWidget {
                     icon: Iconsax.eye,
                     iconname: "Your goal",
                     value: "+ 3.5 kg",
-                    percentage: "48.00 kg",
+                    percentage: 48.00,
                     percentIndigator: 0.9,
                     color: fourthcard,
                     downarrow: false,
@@ -231,14 +232,9 @@ class HealthScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        LinearProgressIndicator(
+                        const AnimatedLinearProgressIndicator(
+                          delay: 1,
                           value: 0.3,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(20)),
-                          minHeight: 4,
-                          valueColor:
-                              const AlwaysStoppedAnimation<Color>(Colors.black),
-                          backgroundColor: Colors.transparent.withOpacity(0.1),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -381,14 +377,9 @@ class HealthScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        LinearProgressIndicator(
+                        const AnimatedLinearProgressIndicator(
+                          delay: 2,
                           value: 0.5,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(20)),
-                          minHeight: 4,
-                          valueColor:
-                              const AlwaysStoppedAnimation<Color>(Colors.black),
-                          backgroundColor: Colors.transparent.withOpacity(0.1),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -489,7 +480,7 @@ class HealthScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 120,
             ),
           ],

@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 
@@ -9,7 +9,6 @@ class ScaleFadeAnimation extends StatefulWidget {
   final double delay;
 
   @override
-  // ignore: library_private_types_in_public_api
   _ScaleFadeAnimationState createState() => _ScaleFadeAnimationState();
 } 
 

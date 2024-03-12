@@ -1,13 +1,15 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:activity_tracker/features/today/widgets/custom_linearprogess.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomContainer extends StatelessWidget {
   IconData icon;
   String iconname;
   String value;
-  String percentage;
+  double percentage;
   double percentIndigator;
   Color color;
   bool downarrow;
@@ -65,33 +67,33 @@ class CustomContainer extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            Row(
-              children: [
-                Text(
-                  percentage,
-                  style: GoogleFonts.poppins(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black),
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Icon(
-                  downarrow
-                      ? CupertinoIcons.down_arrow
-                      : CupertinoIcons.arrow_up,
-                  color: Colors.black,
-                )
-              ],
+            TweenAnimationBuilder<double>(
+              duration: const Duration(seconds: 2),
+              tween: Tween<double>(begin: 0, end: percentage),
+              builder: (context, value, child) {
+                return Row(
+                  children: [
+                    Text(
+                      "${value.toStringAsFixed(0)} %",
+                      style: GoogleFonts.poppins(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Icon(
+                      downarrow
+                          ? CupertinoIcons.down_arrow
+                          : CupertinoIcons.arrow_up,
+                      color: Colors.black,
+                    )
+                  ],
+                );
+              },
             ),
-            LinearProgressIndicator(
-              value: percentIndigator,
-              borderRadius: const BorderRadius.all(Radius.circular(20)),
-              minHeight: 4,
-              valueColor: const AlwaysStoppedAnimation<Color>(Colors.black),
-              backgroundColor: Colors.transparent.withOpacity(0.1),
-            ),
+            AnimatedLinearProgressIndicator(value: percentIndigator, delay: 2)
           ],
         ),
       ),

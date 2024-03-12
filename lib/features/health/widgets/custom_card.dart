@@ -7,7 +7,7 @@ class CustomHealthCard extends StatelessWidget {
   IconData icon;
   String iconname;
   String value;
-  String percentage;
+  double percentage;
   double percentIndigator;
   Color color;
   bool downarrow;
@@ -65,25 +65,31 @@ class CustomHealthCard extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            Row(
-              children: [
-                Text(
-                  percentage,
-                  style: GoogleFonts.poppins(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black),
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Icon(
-                  downarrow
-                      ? CupertinoIcons.down_arrow
-                      : CupertinoIcons.arrow_up,
-                  color: Colors.black,
-                )
-              ],
+            TweenAnimationBuilder<double>(
+              duration: const Duration(seconds: 2),
+              tween: Tween<double>(begin: 0, end: percentage),
+              builder: (context, value, child) {
+                return Row(
+                  children: [
+                    Text(
+                      "${value.toStringAsFixed(2)} kg",
+                      style: GoogleFonts.poppins(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Icon(
+                      downarrow
+                          ? CupertinoIcons.down_arrow
+                          : CupertinoIcons.arrow_up,
+                      color: Colors.black,
+                    )
+                  ],
+                );
+              },
             ),
           ],
         ),
